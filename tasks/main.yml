@@ -1,0 +1,16 @@
+---
+# Will create defined lvm-volumes
+- name: Create defined lvm volumes
+  lvol:
+    vg: "{{ item.vg }}"
+    active: yes
+    lv: "{{ item.name }}"
+    size: "{{ item.size }}"
+    opts: "{{ item.opts | default(omit) }}"
+    state: present
+  with_items: "{{ lvm_volumes }}"
+  when:
+    - lvm_volumes is defined
+    - item.name is defined
+    - item.vg is defined
+

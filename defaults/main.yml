@@ -1,0 +1,4 @@
+---
+lvm_volumes:
+  - {}
+# - { name: "lustre_mgt", vg: "vg_root", size: "100%FREE"}
