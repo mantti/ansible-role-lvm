@@ -1,4 +1,13 @@
 ---
+# Will create defined lvm volumegroups
+- name: Create volumegroups
+  lvg:
+    vg: "{{ item.vg }}"
+    pvs: "{{ item.pvs }}"
+    pesize: "{{ item.pesize }}"
+  with_items: "{{ lvm_vgs }}"
+  when: lvm_vgs is defined
+
 # Will create defined lvm-volumes
 - name: Create defined lvm volumes
   lvol:
