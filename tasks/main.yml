@@ -2,7 +2,7 @@
 # Will create defined lvm volumegroups
 - name: Create volumegroups
   lvg:
-    vg: "{{ item.vg }}"
+    vg: "{{ item.name }}"
     pvs: "{{ item.pvs }}"
     pesize: "{{ item.pesize }}"
   with_items: "{{ lvm_vgs }}"
